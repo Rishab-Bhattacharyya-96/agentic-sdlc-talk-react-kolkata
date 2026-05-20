@@ -1,0 +1,14 @@
+{
+  "agents": {
+    "linter": {
+      "description": "Fixes ESLint and code style issues autonomously",
+      "file": ".opencode/agent/linter.md"
+    }
+  },
+  "permissions": {
+    "fileRead": ["src/**", ".eslintrc.json"],
+    "fileWrite": ["src/**"],
+    "commands": ["eslint", "npm"],
+    "git": false
+  }
+}

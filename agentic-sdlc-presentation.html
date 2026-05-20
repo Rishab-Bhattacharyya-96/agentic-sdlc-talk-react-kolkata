@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agentic Workflows for Enhanced SDLC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/black.min.css" />
+    <style>
+        :root {
+            --r-main-font: 'Segoe UI', sans-serif;
+            --r-heading-font: 'Segoe UI', sans-serif;
+            --r-heading-color: #22c55e;
+            --r-link-color: #22c55e;
+            --r-link-color-hover: #4ade80;
+        }
+        
+        .reveal {
+            font-size: 2.5em;
+        }
+        
+        .reveal h1, .reveal h2, .reveal h3 {
+            color: #22c55e;
+            font-weight: 700;
+        }
+        
+        .reveal pre {
+            width: 100%;
+            font-size: 0.55em;
+            box-shadow: 0 0 10px rgba(34, 197, 94, 0.3);
+            background: #1e1e1e;
+            border-left: 4px solid #22c55e;
+        }
+        
+        .reveal code {
+            padding: 2px 6px;
+            background: rgba(34, 197, 94, 0.1);
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .subtitle {
+            font-size: 0.8em;
+            color: #999;
+            margin-top: 20px;
+        }
+        
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 40px 0;
+        }
+        
+        .two-col ul {
+            text-align: left;
+        }
+        
+        .benefit-box {
+            background: rgba(34, 197, 94, 0.1);
+            border: 2px solid #22c55e;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            font-size: 0.85em;
+        }
+        
+        .problem-box {
+            background: rgba(239, 68, 68, 0.1);
+            border: 2px solid #ef4444;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            font-size: 0.85em;
+            color: #fca5a5;
+        }
+        
+        .diagram {
+            background: rgba(34, 197, 94, 0.05);
+            border-radius: 8px;
+            padding: 30px;
+            margin: 20px 0;
+            font-family: monospace;
+            font-size: 0.7em;
+            line-height: 1.8;
+        }
+        
+        .stat-box {
+            background: rgba(34, 197, 94, 0.15);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 10px;
+            display: inline-block;
+            min-width: 200px;
+        }
+        
+        .stat-number {
+            font-size: 1.5em;
+            color: #22c55e;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- SLIDE 1: Title Slide -->
+            <section>
+                <h1>Agentic Workflows</h1>
+                <h3 style="color: #4ade80;">for Enhanced SDLC</h3>
+                <p class="subtitle">How AI Agents Transform Software Development</p>
+                <p style="margin-top: 40px; font-size: 0.6em; color: #888;">React Kolkata</p>
+            </section>
+
+            <!-- SLIDE 2: Agenda -->
+            <section>
+                <h2>15 Minutes Ahead</h2>
+                <ul style="font-size: 0.9em; margin-top: 40px;">
+                    <li>The Problem: Context, Switching, Silos</li>
+                    <li>What Are Agents? (Brief intro)</li>
+                    <li>Single Agent: Autonomous Task Execution</li>
+                    <li>Multi-Agent: Orchestrated Workflows</li>
+                    <li>Guardrails: Keeping Agents Safe</li>
+                    <li>Live Demo + Q&A</li>
+                </ul>
+            </section>
+
+            <!-- SLIDE 3: The Problem Part 1 -->
+            <section>
+                <h2>The Problem: Context Loss</h2>
+                <div class="problem-box">
+                    <strong>Typical Developer Workflow:</strong>
+                    <ol style="font-size: 0.9em;">
+                        <li>Read code in IDE</li>
+                        <li>Switch to Jira for ticket</li>
+                        <li>Switch to GitHub for PR</li>
+                        <li>Switch back to terminal for tests</li>
+                        <li>Repeat 50+ times per day</li>
+                    </ol>
+                </div>
+                <p style="margin-top: 30px; font-size: 0.9em;">⏱️ <strong>Cost:</strong> ~40% of time spent context-switching, not coding</p>
+            </section>
+
+            <!-- SLIDE 4: The Problem Part 2 -->
+            <section>
+                <h2>The Real Cost</h2>
+                <div class="problem-box">
+                    <strong>What gets lost:</strong>
+                    <ul style="font-size: 0.85em;">
+                        <li>Code context (what did I change 3 files ago?)</li>
+                        <li>Business context (why this ticket, what's the user impact?)</li>
+                        <li>Technical decisions (should this be async?)</li>
+                        <li>Test coverage (did I break something?)</li>
+                    </ul>
+                </div>
+                <p style="margin-top: 30px; font-size: 0.9em;"><strong>Solution:</strong> An agent that never loses context</p>
+            </section>
+
+            <!-- SLIDE 5: What Are Agents? -->
+            <section>
+                <h2>What Are Agents?</h2>
+                <p style="font-size: 0.9em; margin-bottom: 30px;">AI systems that plan, act, and use tools to solve problems</p>
+                <div class="two-col" style="grid-template-columns: 1fr;">
+                    <div style="text-align: left;">
+                        <p style="font-size: 0.85em;"><strong>🧠 Brain:</strong> LLM that thinks & plans</p>
+                        <p style="font-size: 0.85em;"><strong>🔧 Tools:</strong> Code editing, git, CLI, APIs</p>
+                        <p style="font-size: 0.85em;"><strong>🔄 Loop:</strong> Think → Act → Observe → Repeat</p>
+                        <p style="font-size: 0.85em;"><strong>📋 Memory:</strong> Full context of previous steps</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 6: Agent Anatomy -->
+            <section>
+                <h2>The Agent Loop</h2>
+                <pre style="background: rgba(34, 197, 94, 0.05); border-radius: 8px; border-left: 4px solid #22c55e; padding: 20px; font-size: 0.6em; line-height: 1.6;"><code>┌─────────────────────────────────────┐
+│  "Fix all TypeScript errors"        │
+└────────────┬────────────────────────┘
+             │
+             ▼
+    ┌─────────────────────┐
+    │  LLM Thinks:        │
+    │ "I need to read     │
+    │  src/index.ts       │
+    │  and find errors"   │
+    └────────┬────────────┘
+             │
+             ▼
+    ┌─────────────────────┐
+    │ Execute Tool:       │
+    │ read("src/index.ts")│
+    └────────┬────────────┘
+             │
+             ▼
+    ┌─────────────────────┐
+    │ Observe Result:     │
+    │ "Found 3 errors"    │
+    │ Loop → Fix → Test   │
+    └─────────────────────┘</code></pre>
+            </section>
+
+            <!-- SLIDE 7: Single Agent - The Benefit -->
+            <section>
+                <h2>Single Agent: Autonomous Execution</h2>
+                <p style="font-size: 0.9em; margin-bottom: 30px;">One agent, complete ownership of a task</p>
+                <div class="benefit-box">
+                    <strong>Example:</strong> "Fix all TypeScript type errors"
+                    <ul style="font-size: 0.85em; margin-top: 10px;">
+                        <li>✅ Agent reads all files</li>
+                        <li>✅ Identifies type issues</li>
+                        <li>✅ Fixes issues</li>
+                        <li>✅ Runs tests</li>
+                        <li>✅ Creates PR</li>
+                    </ul>
+                </div>
+                <p style="margin-top: 20px; font-size: 0.85em; color: #4ade80;"><strong>Result:</strong> No manual back-and-forth needed</p>
+            </section>
+
+            <!-- SLIDE 8: Single Agent Workflow -->
+            <section>
+                <h2>Single Agent Flow</h2>
+                <pre style="background: rgba(34, 197, 94, 0.05); border-radius: 8px; border-left: 4px solid #22c55e; padding: 20px; font-size: 0.6em; line-height: 1.6;"><code>Developer Command: "Fix linting errors"
+        │
+        ▼
+    ┌─────────────────┐
+    │  Agent Reads    │
+    │ .eslintignore   │
+    └────────┬────────┘
+             │
+             ▼
+    ┌─────────────────┐
+    │  Find Issues    │
+    │ src/utils.ts:45 │
+    └────────┬────────┘
+             │
+             ▼
+    ┌─────────────────┐
+    │  Apply Fixes    │
+    │  (eslint --fix) │
+    └────────┬────────┘
+             │
+             ▼
+    ┌─────────────────┐
+    │  Run Tests      │
+    │  npm test       │
+    └────────┬────────┘
+             │
+             ▼
+    ✅ All Done! PR Ready</code></pre>
+            </section>
+
+            <!-- SLIDE 9: Single Agent Benefits -->
+            <section>
+                <h2>Why This Matters</h2>
+                <div class="two-col" style="grid-template-columns: 1fr;">
+                    <div class="benefit-box">
+                        <strong>⚡ Speed:</strong> Agent doesn't sleep or get distracted
+                    </div>
+                    <div class="benefit-box">
+                        <strong>📚 Context:</strong> Agent maintains full code context across entire repo
+                    </div>
+                    <div class="benefit-box">
+                        <strong>🔄 Iteration:</strong> Agent can retry, refine, improve autonomously
+                    </div>
+                    <div class="benefit-box">
+                        <strong>🧠 Reasoning:</strong> Agent can explain why it made decisions
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 10: Multi-Agent Problem -->
+            <section>
+                <h2>What If Tasks Are Complex?</h2>
+                <p style="font-size: 0.9em; margin-bottom: 30px;">One agent can't do everything well</p>
+                <div class="problem-box">
+                    <strong>Example: "Add user authentication"</strong>
+                    <ul style="font-size: 0.85em;">
+                        <li>Frontend: Add login form UI</li>
+                        <li>Backend: Add JWT validation API</li>
+                        <li>Database: Add user schema + migrations</li>
+                        <li>Testing: Write integration tests</li>
+                    </ul>
+                </div>
+                <p style="margin-top: 20px; font-size: 0.9em;"><strong>One agent?</strong> Slower, less specialized knowledge</p>
+            </section>
+
+            <!-- SLIDE 11: Multi-Agent Solution -->
+            <section>
+                <h2>Multi-Agent Orchestration</h2>
+                <p style="font-size: 0.9em; margin-bottom: 30px;">Orchestrator delegates to specialists</p>
+                <pre style="background: rgba(34, 197, 94, 0.05); border-radius: 8px; border-left: 4px solid #22c55e; padding: 20px; font-size: 0.6em; line-height: 1.6;"><code>Orchestrator: "Add user authentication"
+        │
+        ├─→ Frontend Agent: Add login UI
+        │   └─→ Done ✅
+        │
+        ├─→ Backend Agent: Add JWT API
+        │   └─→ Done ✅
+        │
+        ├─→ Database Agent: Update schema
+        │   └─→ Done ✅
+        │
+        └─→ QA Agent: Write tests
+            └─→ Done ✅
+
+🎯 Result: Parallel execution, specialized expertise</code></pre>
+            </section>
+
+            <!-- SLIDE 12: Multi-Agent Benefits -->
+            <section>
+                <h2>Multi-Agent Advantages</h2>
+                <div class="two-col" style="grid-template-columns: 1fr;">
+                    <div class="benefit-box">
+                        <strong>⚙️ Specialization:</strong> Each agent expert in its domain
+                    </div>
+                    <div class="benefit-box">
+                        <strong>🚀 Parallelization:</strong> Tasks run simultaneously, not sequentially
+                    </div>
+                    <div class="benefit-box">
+                        <strong>🎯 Accuracy:</strong> Specialists make fewer mistakes
+                    </div>
+                    <div class="benefit-box">
+                        <strong>📊 Scalability:</strong> Add agents for new domains easily
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 13: The Risk - Hallucination -->
+            <section>
+                <h2>The Risk: Hallucinations</h2>
+                <p style="font-size: 0.9em; margin-bottom: 20px;">Agents can confidently make wrong decisions</p>
+                <div class="problem-box">
+                    <strong>❌ What could go wrong:</strong>
+                    <ul style="font-size: 0.85em;">
+                        <li>Agent "fixes" code but introduces bugs</li>
+                        <li>Agent links non-existent Jira tickets</li>
+                        <li>Agent deletes important files</li>
+                        <li>Agent makes breaking API changes</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- SLIDE 14: Guardrails & Controls -->
+            <section>
+                <h2>Solution: Guardrails</h2>
+                <div class="benefit-box">
+                    <strong>✅ Custom Plugins:</strong> Validate before acting (does Jira ticket exist?)
+                </div>
+                <div class="benefit-box">
+                    <strong>✅ Permission Allowlists:</strong> Agent can only touch certain files/APIs
+                </div>
+                <div class="benefit-box">
+                    <strong>✅ Audit Logs:</strong> Track every decision for review
+                </div>
+                <div class="benefit-box">
+                    <strong>✅ Human-in-Loop:</strong> Require approval for critical changes
+                </div>
+            </section>
+
+            <!-- SLIDE 15: Guardrails Example -->
+            <section>
+                <h2>Example: Safe Jira Integration</h2>
+                <pre><code style="font-size: 0.8em;">// Before agent creates PR, validate:
+const jiraTicket = await jira_ticket.get(ticketId);
+
+if (!jiraTicket) {
+  agent.halt("Ticket doesn't exist, aborting PR");
+}
+
+if (jiraTicket.status !== "IN_PROGRESS") {
+  agent.halt("Ticket not ready, aborting PR");
+}
+
+// ✅ Safe to proceed
+await git.createPullRequest(...);</code></pre>
+            </section>
+
+            <!-- SLIDE 16: The Plugin Extension -->
+            <section>
+                <h2>Custom Tools: The Plugin System</h2>
+                <p style="font-size: 0.9em; margin-bottom: 20px;">Extend agents with domain-specific logic</p>
+                <div class="benefit-box">
+                    <strong>Built-in tools:</strong> file read/write, git, npm, bash
+                </div>
+                <div class="benefit-box">
+                    <strong>Custom tools you add:</strong> Jira API, Slack notifications, database queries
+                </div>
+                <div class="diagram" style="font-size: 0.7em; margin-top: 20px;">
+// In .opencode/plugin/index.ts
+export const tools = {
+  jira_ticket: async (id) => { ... },
+  audit_log: async (action) => { ... },
+  slack_notify: async (msg) => { ... }
+};</div>
+            </section>
+
+            <!-- SLIDE 17: Putting It All Together -->
+            <section>
+                <h2>The Full Picture</h2>
+                <pre style="background: rgba(34, 197, 94, 0.05); border-radius: 8px; border-left: 4px solid #22c55e; padding: 20px; font-size: 0.6em; line-height: 1.6;"><code>┌─────────────────────────────────────────┐
+│    Your Development Task                 │
+└────────────────┬────────────────────────┘
+                 │
+                 ▼
+        ┌─────────────────────┐
+        │  Orchestrator Agent │
+        └────────┬────────────┘
+                 │
+        ┌────────┼────────┬─────────┐
+        ▼        ▼        ▼         ▼
+    Frontend  Backend  Tests   Release
+    Agent     Agent    Agent    Agent
+        │        │        │         │
+        └────────┼────────┼─────────┘
+                 │
+                 ▼
+        ┌─────────────────────┐
+        │  Plugins & Guards   │
+        │ (Validation, Audit) │
+        └────────┬────────────┘
+                 │
+                 ▼
+        ✅ Safe, Coordinated Delivery</code></pre>
+            </section>
+
+            <!-- SLIDE 18: Key Takeaways -->
+            <section>
+                <h2>Key Takeaways</h2>
+                <div style="text-align: left; font-size: 0.9em;">
+                    <p class="benefit-box" style="margin-bottom: 10px;">
+                        <strong>1️⃣ Agents ≠ Snippets:</strong> They orchestrate entire workflows, not just code generation
+                    </p>
+                    <p class="benefit-box" style="margin-bottom: 10px;">
+                        <strong>2️⃣ Multi-agent systems scale:</strong> Specialization + parallelization = exponential productivity
+                    </p>
+                    <p class="benefit-box" style="margin-bottom: 10px;">
+                        <strong>3️⃣ Safety first:</strong> Plugins + guardrails + audit = confidence in automation
+                    </p>
+                    <p class="benefit-box">
+                        <strong>4️⃣ SDLC is entering the agentic era:</strong> Teams that adopt agents first will ship faster
+                    </p>
+                </div>
+            </section>
+
+            <!-- SLIDE 19: CTA -->
+            <section>
+                <h2>Try It Yourself</h2>
+                <p style="font-size: 0.9em; margin-top: 30px;">Install OpenCode and start with agents in your next sprint:</p>
+                <pre style="margin-top: 30px;"><code>brew install anomalyco/tap/opencode
+opencode
+
+# In the TUI:
+@orchestrator "Fix all linting errors in src/"</code></pre>
+                <p style="margin-top: 40px; font-size: 0.8em; color: #888;">Questions? Check out <a href="https://opencode.ai/docs/agents" style="color: #22c55e;">opencode.ai/docs/agents</a></p>
+            </section>
+
+            <!-- SLIDE 20: Demo -->
+            <section>
+                <h2>Live Demo</h2>
+                <p style="font-size: 0.95em; margin-top: 40px;">Let's watch an agent fix real code issues in real-time</p>
+                <p style="margin-top: 60px; font-size: 0.85em; color: #4ade80;">→ Next: Open terminal and run the demo</p>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            transition: 'slide',
+            backgroundTransition: 'fade',
+            center: true,
+            width: '100%',
+            height: '100%',
+            margin: 0.1
+        });
+    </script>
+</body>
+</html>

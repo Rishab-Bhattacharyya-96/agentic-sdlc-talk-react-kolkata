@@ -1,0 +1,17 @@
+{
+  "name": "linting-demo",
+  "version": "1.0.0",
+  "description": "Demo: Agent fixes ESLint issues autonomously",
+  "main": "src/buggy-code.ts",
+  "scripts": {
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix",
+    "lint:check": "eslint src/buggy-code.ts"
+  },
+  "keywords": ["opencode", "agents", "eslint", "demo"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.50.0"
+  }
+}
